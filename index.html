@@ -175,7 +175,31 @@
     </div>
 
     <div class="example">
-        <h2>5. WASM Integration: Mandelbrot Set</h2>
+        <h2>5. Molecular Dynamics Simulation</h2>
+        <p>Real-time 3D physics simulation of interacting atoms using Lennard-Jones potential.</p>
+
+        <div class="controls">
+            <button id="btn-md-start">▶ Start</button>
+            <button id="btn-md-pause">⏸ Pause</button>
+            <button id="btn-md-reset">Reset</button>
+            <label>Atoms:</label>
+            <input type="range" id="md-atoms" min="100" max="5000" value="1000" step="100">
+            <span id="md-atoms-value">1000</span>
+            <label>Temperature:</label>
+            <input type="range" id="md-temp" min="1" max="100" value="30">
+            <span id="md-temp-value">30</span>
+        </div>
+
+        <div style="color: #aaa; margin: 10px 0;">
+            <strong>Controls:</strong> Left-click + drag to rotate | Mouse wheel to zoom | Right-click + drag to pan
+        </div>
+
+        <canvas id="canvas-md" width="1000" height="700" style="background: #000;"></canvas>
+        <div id="output-md" class="output"></div>
+    </div>
+
+    <div class="example">
+        <h2>6. WASM Integration: Mandelbrot Set</h2>
         <p>Uses WASM to coordinate WebGPU compute shaders for rendering the Mandelbrot fractal.</p>
         <button id="btn-wasm-mandelbrot">Run WASM + WebGPU</button>
         <canvas id="canvas-mandelbrot" width="800" height="600"></canvas>

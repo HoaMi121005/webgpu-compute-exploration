@@ -32,7 +32,16 @@ Interactive cellular automaton with GPU acceleration.
 - **Performance**: Real-time simulation at 60 FPS with zero CPU overhead
 - **Features**: Play/pause, step-through, adjustable speed
 
-### 5. WASM Integration (Mandelbrot Set)
+### 5. Molecular Dynamics Simulation
+Real-time 3D physics simulation of interacting particles.
+- **Particles**: 100-5000 atoms with Lennard-Jones potential
+- **Physics**: Velocity Verlet integration, periodic boundaries
+- **Rendering**: Instanced 3D spheres with Phong shading
+- **Interaction**: Mouse drag to rotate, wheel to zoom, right-drag to pan
+- **Visualization**: Temperature-based coloring (blue=cold, red=hot)
+- **Performance**: 60 FPS with up to 5000 particles, O(N²) force calculations on GPU
+
+### 6. WASM Integration (Mandelbrot Set)
 Demonstrates Rust/WASM coordinating WebGPU compute shaders.
 - **Architecture**: Rust handles configuration, WebGPU performs computation
 - **Rendering**: 800×600 fractal with HSV color mapping
@@ -99,7 +108,8 @@ webgpu/
 │   │   ├── matrix-multiplication.js   # Example 2: Matrix multiply
 │   │   ├── image-blur.js              # Example 3: Image processing
 │   │   ├── game-of-life.js            # Example 4: Conway's Game of Life
-│   │   └── wasm-mandelbrot.js         # Example 5: WASM integration
+│   │   ├── molecular-dynamics.js      # Example 5: Molecular dynamics
+│   │   └── wasm-mandelbrot.js         # Example 6: WASM integration
 │   └── wasm-pkg/                      # Built WASM module (generated)
 ├── wasm/
 │   ├── Cargo.toml                     # Rust dependencies
