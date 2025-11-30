@@ -1,0 +1,19 @@
+{
+  "name": "webgpu-compute-exploration",
+  "version": "1.0.0",
+  "description": "Exploration of WebGPU computational capabilities with WASM integration",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build-wasm": "cd wasm && chmod +x build.sh && ./build.sh"
+  },
+  "keywords": [
+    "webgpu",
+    "wasm",
+    "compute-shaders",
+    "gpu-computing",
+    "wgsl"
+  ],
+  "author": "",
+  "license": "MIT"
+}

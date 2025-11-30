@@ -1,0 +1,192 @@
+# WebGPU Compute Exploration
+
+A comprehensive exploration of WebGPU's computational capabilities, featuring pure JavaScript examples and WASM integration for high-performance computing in the browser.
+
+## Features
+
+### 1. Vector Addition
+Demonstrates basic GPU compute with parallel vector addition on 1 million elements.
+- **Shader**: WGSL compute shader with workgroup size optimization
+- **Use Case**: Foundation for understanding GPU parallelism
+- **Performance**: Processes millions of elements per millisecond
+
+### 2. Matrix Multiplication
+Implements efficient matrix multiplication using 2D workgroups.
+- **Dimensions**: 512×512 matrices
+- **Shader**: Optimized compute shader with proper indexing
+- **Use Case**: Neural networks, 3D graphics, scientific computing
+- **Performance**: GFLOPS measurements included
+
+### 3. Image Processing (Gaussian Blur)
+Real-time image filtering using compute shaders.
+- **Algorithm**: Gaussian blur with configurable kernel
+- **Shader**: 2D convolution with boundary handling
+- **Use Case**: Video filters, anti-aliasing, depth of field
+- **Visualization**: Side-by-side original and processed images
+
+### 4. WASM Integration (Mandelbrot Set)
+Demonstrates Rust/WASM coordinating WebGPU compute shaders.
+- **Architecture**: Rust handles configuration, WebGPU performs computation
+- **Rendering**: 800×600 fractal with HSV color mapping
+- **Use Case**: Complex applications requiring both CPU and GPU
+- **Performance**: Full pipeline benchmarking
+
+## Browser Support
+
+WebGPU is supported in:
+- Chrome 113+ (Stable)
+- Edge 113+ (Stable)
+- Firefox 118+ (Behind flag, experimental)
+- Safari 18+ (Technical Preview)
+
+Check support at: https://caniuse.com/webgpu
+
+## Setup
+
+### Quick Start (JavaScript Only)
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000 in a WebGPU-compatible browser.
+
+### Full Setup (with WASM)
+
+1. **Install Rust** (if not already installed):
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+2. **Install wasm-pack**:
+```bash
+cargo install wasm-pack
+```
+
+3. **Build WASM module**:
+```bash
+cd wasm
+chmod +x build.sh
+./build.sh
+```
+
+4. **Start development server**:
+```bash
+cd ..
+python3 -m http.server 8000
+```
+
+5. Open http://localhost:8000
+
+## Project Structure
+
+```
+webgpu/
+├── index.html                          # Main application page
+├── js/
+│   ├── main.js                        # Application entry point
+│   ├── webgpu-utils.js                # WebGPU helper functions
+│   ├── examples/
+│   │   ├── vector-addition.js         # Example 1: Vector addition
+│   │   ├── matrix-multiplication.js   # Example 2: Matrix multiply
+│   │   ├── image-blur.js              # Example 3: Image processing
+│   │   └── wasm-mandelbrot.js         # Example 4: WASM integration
+│   └── wasm-pkg/                      # Built WASM module (generated)
+├── wasm/
+│   ├── Cargo.toml                     # Rust dependencies
+│   ├── build.sh                       # WASM build script
+│   └── src/
+│       └── lib.rs                     # Rust/WASM source code
+└── README.md
+```
+
+## Technical Details
+
+### WebGPU Compute Shaders
+
+All examples use WGSL (WebGPU Shading Language), the modern shader language designed specifically for WebGPU:
+
+```wgsl
+@compute @workgroup_size(64)
+fn main(@builtin(global_invocation_id) global_id: vec3<u32>) {
+    // Your compute code here
+}
+```
+
+### Key Concepts
+
+**Workgroups**: GPUs process data in parallel workgroups. Each workgroup contains multiple threads (invocations).
+
+**Storage Buffers**: Used for large data that the shader reads/writes.
+
+**Uniform Buffers**: Used for small configuration data that's constant across invocations.
+
+**Pipeline**: Defines how shaders and resources are bound together.
+
+### WASM Integration Pattern
+
+The WASM example demonstrates a powerful pattern:
+
+1. **Rust/WASM**: Manages application state, configuration, and complex CPU logic
+2. **WebGPU**: Performs compute-intensive parallel operations
+3. **Canvas API**: Renders results via WASM
+
+This architecture is ideal for:
+- Game engines (logic in WASM, rendering in WebGPU)
+- Scientific computing (algorithms in Rust, computation on GPU)
+- ML inference (model management in WASM, matrix ops on GPU)
+
+## Performance Tips
+
+1. **Buffer Management**: Reuse buffers when possible to avoid allocation overhead
+2. **Workgroup Size**: Optimize for your GPU (typically 64, 128, or 256)
+3. **Memory Layout**: Use contiguous memory for better cache performance
+4. **Async Operations**: WebGPU operations are asynchronous - use promises properly
+5. **Data Transfer**: Minimize CPU↔GPU transfers, keep data on GPU when possible
+
+## Learning Resources
+
+- [WebGPU Specification](https://gpuweb.github.io/gpuweb/)
+- [WGSL Specification](https://gpuweb.github.io/gpuweb/wgsl/)
+- [WebGPU Samples](https://webgpu.github.io/webgpu-samples/)
+- [GPU Gems (Advanced Techniques)](https://developer.nvidia.com/gpugems/gpugems/contributors)
+
+## Extending This Project
+
+Ideas for additional examples:
+
+1. **N-Body Simulation**: Physics simulation with gravitational forces
+2. **Ray Tracing**: Real-time ray tracing using compute shaders
+3. **FFT**: Fast Fourier Transform for signal processing
+4. **ML Inference**: Run neural networks entirely in WebGPU
+5. **Particle Systems**: Real-time particle effects and physics
+6. **Fluid Simulation**: Navier-Stokes solver for fluid dynamics
+
+## Troubleshooting
+
+### WebGPU Not Detected
+- Ensure you're using a compatible browser version
+- Check chrome://gpu/ (Chrome/Edge) or about:support (Firefox)
+- Update your graphics drivers
+
+### WASM Module Fails to Load
+- Run the build script: `cd wasm && ./build.sh`
+- Check that `js/wasm-pkg/` directory exists
+- Ensure wasm-pack installed correctly
+
+### Performance Issues
+- Check GPU utilization in browser DevTools
+- Reduce workgroup size if crashes occur
+- Monitor buffer sizes and memory usage
+
+## License
+
+This project is provided as-is for educational purposes. Feel free to use and modify for your own learning and projects.
+
+## Contributing
+
+This is an exploration project. If you add new examples or improvements:
+1. Keep examples focused and well-documented
+2. Include performance metrics
+3. Add shader code comments explaining the algorithm
+4. Update this README with your additions
